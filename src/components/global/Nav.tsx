@@ -1,11 +1,12 @@
 'use client'
 import Logo from './Logo'
 import { Avatar } from 'antd'
-import Breadcrumb from './BreadCrumbs'
+// import Breadcrumb from './BreadCrumbs'
 import { useBreadcrumbs } from '@/customHooks/BreadCrumbsContext'
 import { Icon } from '@iconify/react/dist/iconify.js'
 import Input from '../ui/Input'
-import { getPageInfo } from './PageInfo'
+// import { getPageInfo } from './PageInfo'
+import Breadcrumb from './PageInfo'
 import { usePathname } from 'next/navigation'
 
 export default function NavBar () {
@@ -22,18 +23,19 @@ export default function NavBar () {
 export const DashboardNav = () => {
   const { breadcrumbs } = useBreadcrumbs()
   const pathname = usePathname()
-  const pageInfo = getPageInfo(pathname)
+//   const pageInfo = getPageInfo(pathname)
 
   return (
     <div className='flex items-center gap-5 justify-between px-5 py-1 h-[85px] border-b border-[#CCCCCC]30 '>
       <div className='flex items-start'>
-        {breadcrumbs.length > 0 && <Breadcrumb data={breadcrumbs} />}
-        {pageInfo && (
+        {/* {breadcrumbs.length > 0 && <Breadcrumb data={breadcrumbs} />} */}
+        {/* {pageInfo && (
           <div className='flex items-center space-x-2'>
             {pageInfo.icon}
             <span className='text-[12px] font-normal'>{pageInfo.title}</span>
           </div>
-        )}
+        )} */}
+        <Breadcrumb />
       </div>
       <div className='flex gap-5 items-center justify-between '>
         <Input
