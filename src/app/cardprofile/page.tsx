@@ -59,7 +59,7 @@ export default function Home () {
       <hr />
 
       <div className='mt-3'>
-        <TableWrapper bordered>
+        <TableWrapper bordered={true}>
           <TableHead
             titles={[
               'Card Name',
@@ -69,6 +69,7 @@ export default function Home () {
               'Date Created',
               'Actions'
             ]}
+            bordered={true}
           />
           <tbody className='text-[#475467] font-normal text-sm '>
             {card.map((service, index) => {
@@ -92,6 +93,7 @@ export default function Home () {
                       <Icon icon='lucide:edit-2' width='24' height='24' className='cursor-pointer'/>
                     </div>
                   ]}
+                  bordered={true}
                 />
               )
             })}

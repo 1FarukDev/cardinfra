@@ -7,6 +7,7 @@ import { InsuaranceChart } from '@/components/ui/Insurance'
 import CardRequests from '@/components/ui/CardRequests'
 import { WeeklyIncome } from '@/components/ui/WeekIncome'
 import { CardDistribution } from '@/components/ui/CardDistribution'
+import DatePickerComponent from '@/components/ui/DatePicker'
 
 export default function Home () {
   const accessCardsData = [
@@ -101,12 +102,17 @@ export default function Home () {
 
   return (
     <div className='bg-[#c0defd2b] min-h-screen px-5 py-3 flex flex-col space-y-2'>
-      <h1 className='font-bold text-lg'>
-        Hi Nazeer, what would you like to do today?
-      </h1>
-      <div className='flex space-x-1 items-center'>
-        <p className='font-medium text-sm'>Last Login:</p>
-        <p className='font-normal text-sm'>26/11/2024 14:39:58</p>
+      <div className='flex items-start justify-between mb-3'>
+        <div>
+          <h1 className='font-bold text-lg'>
+            Hi Nazeer, what would you like to do today?
+          </h1>
+          <div className='flex space-x-1 items-center'>
+            <p className='font-medium text-sm'>Last Login:</p>
+            <p className='font-normal text-sm'>26/11/2024 14:39:58</p>
+          </div>
+        </div>
+        <DatePickerComponent />
       </div>
 
       <div className='bg-white p-3 flex flex-col gap-4 py-5 border border-[#E2E2E2] rounded-lg shadow-sm'>

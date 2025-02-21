@@ -87,6 +87,7 @@ export default function Home () {
               'Status',
               'Actions'
             ]}
+            bordered={true}
           />
           <tbody className='text-[#475467] font-normal text-sm '>
             {card.map((service, index) => {
@@ -110,6 +111,7 @@ export default function Home () {
                       View
                     </Link>
                   ]}
+                  bordered={true}
                 />
               )
             })}

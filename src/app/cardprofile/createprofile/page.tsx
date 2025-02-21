@@ -116,7 +116,7 @@ export default function CardRequestDetail () {
         </CardHeader>
         <CardContent>
           <div className='mt-3'>
-            <TableWrapper bordered>
+            <TableWrapper bordered={true}>
               <TableHead
                 titles={[
                   'Name',
@@ -127,6 +127,7 @@ export default function CardRequestDetail () {
                   'Amount Paid',
                   'Account'
                 ]}
+                bordered={true}
               />
               <tbody className='text-[#475467] font-normal text-sm '>
                 {card.map((service, index) => {
@@ -140,6 +141,7 @@ export default function CardRequestDetail () {
                         <span></span>,
                         <span></span>
                       ]}
+                      bordered={true}
                     />
                   )
                 })}

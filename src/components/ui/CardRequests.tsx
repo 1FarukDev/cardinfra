@@ -35,6 +35,7 @@ function CardRequests() {
           <TableWrapper>
             <TableHead
               titles={['Branch', 'Card Type', 'Quantity', 'Status', 'Actions']}
+              bordered={true}
             />
             <tbody className='text-[#475467] font-normal text-sm '>
               {services.map((service, index) => {
@@ -48,6 +49,7 @@ function CardRequests() {
                       <span className={`px-4 py-2 rounded-full ${getStatusStyles(service.status)}`}>{service.status}</span>,
                       <span className='text-[#014DAF] font-bold'>View</span>,
                     ]}
+                    bordered={true}
                   />
                 )
               })}
