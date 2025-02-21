@@ -109,7 +109,7 @@ export default function Home () {
         <p className='font-normal text-sm'>26/11/2024 14:39:58</p>
       </div>
 
-      <div className='bg-white p-3 flex flex-col space-y-4 py-5 border border-[#E2E2E2] rounded-lg shadow-sm'>
+      <div className='bg-white p-3 flex flex-col gap-4 py-5 border border-[#E2E2E2] rounded-lg shadow-sm'>
         <h1 className='font-semibold text-base'>Your Quick Access</h1>
 
         <div className='flex space-x-4 items-center justify-between'>
@@ -153,12 +153,12 @@ export default function Home () {
         </div>
       </div>
       <div className='flex space-x-2'>
-       <div className='w-1/2'>
-       <WeeklyIncome />
-       </div>
-       <div className='w-1/2'>
-       <CardDistribution />
-       </div>
+        <div className='w-1/2'>
+          <WeeklyIncome />
+        </div>
+        <div className='w-1/2'>
+          <CardDistribution />
+        </div>
       </div>
     </div>
   )

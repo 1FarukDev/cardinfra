@@ -231,7 +231,7 @@ export default function CardRequestDetail () {
       </Card>
 
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-        <div className='space-y-4'>
+        <div className='flex flex-col gap-4 px-5'>
           <div className='p-2 bg-white border border-[rgba(234, 236, 240, 1)] rounded-lg w-max shadow-sm'>
             <Icon
               icon='material-symbols-light:check-circle'
@@ -247,16 +247,18 @@ export default function CardRequestDetail () {
               Production file has been downloaded.
             </p>
           </div>
-          <button
-            className='bg-[#014DAF] text-white font-medium text-sm py-4 px-8 rounded-lg '
-            onClick={handleCloseModal}
-          >
-            Continue
-          </button>
+          <div>
+            <button
+              className='bg-[#014DAF] text-white font-medium text-sm py-4 px-8 rounded-lg '
+              onClick={handleCloseModal}
+            >
+              Continue
+            </button>
+          </div>
         </div>
       </Modal>
       <Modal isOpen={isDispatchModalOpen} onClose={handleCloseModal}>
-        <div className='space-y-4'>
+        <div className='flex flex-col gap-4 px-5'>
           <div className='p-2 bg-white border border-[rgba(234, 236, 240, 1)] rounded-lg w-max shadow-sm'>
             <Icon
               icon='material-symbols-light:check-circle'
@@ -272,12 +274,14 @@ export default function CardRequestDetail () {
               Card batch successfully sent to dispatch.
             </p>
           </div>
-          <button
-            className='bg-[#014DAF] text-white font-medium text-sm py-4 px-8 rounded-lg '
-            onClick={() => setIsDispatchModalOpen(false)}
-          >
-            Continue
-          </button>
+          <div>
+            <button
+              className='bg-[#014DAF] text-white font-medium text-sm py-4 px-8 rounded-lg '
+              onClick={() => setIsDispatchModalOpen(false)}
+            >
+              Continue
+            </button>
+          </div>
         </div>
       </Modal>
     </div>

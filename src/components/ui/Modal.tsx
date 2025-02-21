@@ -24,32 +24,13 @@ const ModalOverlay = styled.div`
 
 const ModalContent = styled.div`
   background: white;
-  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   border-radius: 8px;
   width: 500px;
   max-width: 100%;
 `
 
-const ModalHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #e5e5e5;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-`
-
-const ModalTitle = styled.h2`
-  margin: 0;
-  font-size: 18px;
-`
-
-const CloseButton = styled.button`
-  background: none;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-`
 
 export default function Modal ({
   isOpen,
@@ -62,10 +43,6 @@ export default function Modal ({
   return (
     <ModalOverlay>
       <ModalContent>
-        {/* <ModalHeader>
-          <ModalTitle>{title}</ModalTitle>
-          <CloseButton onClick={onClose}>&times;</CloseButton>
-        </ModalHeader> */}
         {children}
       </ModalContent>
     </ModalOverlay>

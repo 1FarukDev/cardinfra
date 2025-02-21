@@ -4,20 +4,6 @@ import Input from '@/components/ui/Input'
 import TableWrapper, { TableHead, TableRow } from '@/components/ui/Table'
 import { useRouter } from 'next/navigation'
 export default function Home () {
-  function getStatusStyles (status: string) {
-    switch (status) {
-      case 'Ready':
-        return 'bg-[#ECFDF3] text-[#067647] border border-[#ABEFC6]'
-      case 'In Progress':
-        return 'bg-[#FFFAEB] text-[#B54708] border border-[#FEDF89]'
-      case 'Acknowledged':
-        return 'bg-[#EFF8FF] text-[#175CD3] border border-[#B2DDFF]'
-      case 'Pending':
-        return 'bg-[#F9FAFB] text-[#344054] border border-[#EAECF0]'
-      default:
-        return ''
-    }
-  }
 
   const card = [
     {

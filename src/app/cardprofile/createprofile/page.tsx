@@ -14,10 +14,12 @@ import { Icon } from '@iconify/react/dist/iconify.js'
 import Modal from '@/components/ui/Modal'
 import DropDown from '@/components/ui/Dropdown'
 import { useState } from 'react'
+import RadioButton from '@/components/ui/RadioButton'
 
 export default function CardRequestDetail () {
   const [selectedValue, setSelectedValue] = useState(null)
-  const [selectedContent, setSelectedContent] = useState([])
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedRadio, setSelectedRadio] = useState<string>('')
 
   const handleChange = (value: any) => {
     setSelectedValue(value)
@@ -42,8 +44,17 @@ export default function CardRequestDetail () {
     }
   ]
 
+  const handleCloseModal = () => {
+    setIsModalOpen(false)
+  }
+
+  const handleRadioChange = (value: string) => {
+    setSelectedRadio(value)
+  }
+
+  const radioOptions = ['Radio 1', 'Radio 2', 'Radio 3']
   return (
-    <div className='bg-[#c0defd2b] min-h-screen px-5 py-3 flex flex-col space-y-4'>
+    <div className='bg-[#c0defd2b] min-h-screen px-5 py-3 flex flex-col gap-4'>
       <div>
         <h1 className='font-bold text-lg'>Create Profile</h1>
         <div className='flex space-x-1 items-center'>
@@ -97,7 +108,7 @@ export default function CardRequestDetail () {
           <CardTitle>Fees</CardTitle>
           <button
             className='bg-[#014DAF] text-white flex space-x-2 items-center py-2 px-4 rounded-lg w-max mt-2'
-            onClick={() => router.push('/cardprofile/createprofile')}
+            onClick={() => setIsModalOpen(true)}
           >
             <Icon icon='material-symbols:add-rounded' width='24' height='24' />
             <p>Add Fee</p>
@@ -141,12 +152,123 @@ export default function CardRequestDetail () {
       <div className='pt-9'>
         <button
           className='bg-[#014DAF] text-white flex space-x-2 items-center py-2 px-[95px] rounded-md w-max'
-          onClick={() => router.push('/cardprofile/createprofile')}
+          onClick={() => setIsModalOpen(true)}
         >
           <Icon icon='material-symbols:add-rounded' width='24' height='24' />
           <p>Create Profile</p>
         </button>
       </div>
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+        <div className='flex flex-col gap-4'>
+          <div className='flex justify-between items-start px-5'>
+            <div className='flex space-x-3 items-center'>
+              <div className='p-2 bg-white border border-[#EAECF0] rounded-lg w-max shadow-sm'>
+                <Icon icon='basil:add-outline' width='28' height='28' />
+              </div>
+              <div>
+                <p className='font-bold text-lg'>Add Fee</p>
+                <p className='font-normal text-base text-[#475467]'>
+                  Fill in fee details
+                </p>
+              </div>
+            </div>
+            <Icon
+              icon='iconoir:cancel'
+              width='30'
+              height='30'
+              color='#667085'
+              onClick={() => setIsModalOpen(false)}
+              className='cursor-pointer'
+            />
+          </div>
+          <hr />
+
+          <div className='px-5 flex flex-col gap-4'>
+            <Input label='Fee Name*' placeholder='Maintenance' />
+            <DropDown
+              data={dropdownData}
+              onChange={handleChange}
+              onContentChange={handleContentChange}
+              label='Value'
+              placeHolder='0'
+            />
+
+            <div>
+              <p className='font-medium text-base'>Currency</p>
+              <div className='flex space-x-4'>
+                {['NGN', 'USD'].map(option => (
+                  <RadioButton
+                    key={option}
+                    label={option}
+                    name='exampleRadio'
+                    value={option}
+                    checked={selectedRadio === option}
+                    onChange={handleRadioChange}
+                  />
+                ))}
+              </div>
+            </div>
+            <div>
+              <p className='font-medium text-base'>Fee Frequency</p>
+              <div className='flex space-x-4'>
+                {['One Off', 'Monthly'].map(option => (
+                  <RadioButton
+                    key={option}
+                    label={option}
+                    name='exampleRadio'
+                    value={option}
+                    checked={selectedRadio === option}
+                    onChange={handleRadioChange}
+                  />
+                ))}
+              </div>
+            </div>
+            <div>
+              <p className='font-medium text-base'>Fee Impact</p>
+              <div className='flex space-x-4'>
+                {['Insuarance', 'Pin Reissue'].map(option => (
+                  <RadioButton
+                    key={option}
+                    label={option}
+                    name='exampleRadio'
+                    value={option}
+                    checked={selectedRadio === option}
+                    onChange={handleRadioChange}
+                  />
+                ))}
+              </div>
+            </div>
+            <div>
+              <p className='font-medium text-base'>Account Pad</p>
+              <div className='flex space-x-4'>
+                {['None', 'Branch Code Prefix', 'Branch Code Suffix'].map(
+                  option => (
+                    <RadioButton
+                      key={option}
+                      label={option}
+                      name='exampleRadio'
+                      value={option}
+                      checked={selectedRadio === option}
+                      onChange={handleRadioChange}
+                    />
+                  )
+                )}
+              </div>
+            </div>
+            <Input label='Account' placeholder='' />
+          </div>
+          <hr />
+
+          <div className='px-5 w-full'>
+            <button
+              className='bg-[#014DAF] text-white font-medium text-sm py-4 px-8 rounded-lg w-full'
+              onClick={() => setIsModalOpen(false)}
+            >
+              Add Fee
+            </button>
+          </div>
+        </div>
+      </Modal>
     </div>
   )
 }
