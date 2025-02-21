@@ -102,7 +102,7 @@ export default function Home () {
 
   return (
     <div className='bg-[#c0defd2b] min-h-screen px-5 py-3 flex flex-col space-y-2'>
-      <div className='flex items-start justify-between mb-3'>
+      <div className='flex items-start justify-between mb-3 flex-wrap gap-2'>
         <div>
           <h1 className='font-bold text-lg'>
             Hi Nazeer, what would you like to do today?
@@ -118,7 +118,7 @@ export default function Home () {
       <div className='bg-white p-3 flex flex-col gap-4 py-5 border border-[#E2E2E2] rounded-lg shadow-sm'>
         <h1 className='font-semibold text-base'>Your Quick Access</h1>
 
-        <div className='flex space-x-4 items-center justify-between'>
+        <div className='flex gap-4 items-center justify-between'>
           {accessCardsData.map((card, index) => (
             <AccessCard
               key={index}
@@ -151,18 +151,12 @@ export default function Home () {
         ))}
       </div>
       <div className='flex space-x-2'>
-        <div className='w-1/2'>
+        <div className='md:w-1/2 w-full flex flex-col gap-3'>
           <InsuaranceChart />
-        </div>
-        <div className='w-1/2'>
-          <CardRequests />
-        </div>
-      </div>
-      <div className='flex space-x-2'>
-        <div className='w-1/2'>
           <WeeklyIncome />
         </div>
-        <div className='w-1/2'>
+        <div className='md:w-1/2 w-full flex flex-col gap-3'>
+          <CardRequests />
           <CardDistribution />
         </div>
       </div>
