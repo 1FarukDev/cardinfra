@@ -37,9 +37,7 @@ export default function SideBar ({
   const sideBar = [
     {
       title: 'Dashboard',
-      icon: (
-        <Icon icon="hugeicons:home-03" width="16" height="16" />
-      ),
+      icon: <Icon icon='hugeicons:home-03' width='16' height='16' />,
       url: '/'
     },
     {
@@ -52,7 +50,7 @@ export default function SideBar ({
           className='text-[#00000080]'
         />
       ),
-      url: '/dashboard/providers'
+      url: '/branches'
     },
     {
       title: 'Roles',
@@ -64,7 +62,7 @@ export default function SideBar ({
           className='text-[#00000080]'
         />
       ),
-      url: '/dashboard/services'
+      url: '/roles'
     },
     {
       title: 'Users',
@@ -76,7 +74,7 @@ export default function SideBar ({
           className='text-[#00000080]'
         />
       ),
-      url: '/dashboard/marketplace'
+      url: '/users'
     },
     {
       title: 'Card Scheme',
@@ -88,7 +86,7 @@ export default function SideBar ({
           className='text-[#00000080]'
         />
       ),
-      url: '/dashboard/user-management'
+      url: '/cardscheme'
     },
     {
       title: 'Card Profile',
@@ -124,7 +122,7 @@ export default function SideBar ({
           className='text-[#00000080]'
         />
       ),
-      url: '/dashboard/support'
+      url: '/stock'
     },
     {
       title: 'Cards',
@@ -136,7 +134,7 @@ export default function SideBar ({
           className='text-[#00000080]'
         />
       ),
-      url: '/dashboard/support'
+      url: '/cards'
     },
     {
       title: 'Authorization List',
@@ -148,7 +146,7 @@ export default function SideBar ({
           className='text-[#00000080]'
         />
       ),
-      url: '/dashboard/support'
+      url: '/list'
     },
     {
       title: 'Authorization Queue',
@@ -160,7 +158,7 @@ export default function SideBar ({
           className='text-[#00000080]'
         />
       ),
-      url: '/dashboard/support'
+      url: '/queue'
     },
     {
       title: 'Trail',
@@ -172,7 +170,7 @@ export default function SideBar ({
           className='text-[#00000080]'
         />
       ),
-      url: '/dashboard/support'
+      url: '/trail'
     },
     {
       title: 'Account',
@@ -184,7 +182,7 @@ export default function SideBar ({
           className='text-[#00000080]'
         />
       ),
-      url: '/dashboard/support'
+      url: '/account'
     }
   ]
 
@@ -192,7 +190,13 @@ export default function SideBar ({
     setSideBarData(sideBar)
   }, [])
 
-  const isActive = (url: string) => pathname === url
+  const isActive = (url: string) => {
+    if (url === '/') {
+      return pathname === '/';
+    }
+    return pathname.startsWith(url);
+  };
+  
 
   return (
     <div className={`flex min-h-screen ${className}`}>
@@ -271,10 +275,10 @@ const Button = styled.button`
   gap: 8px;
 
   p {
-    width: auto; 
-    white-space: normal; 
-    overflow: visible; 
-    text-overflow: clip; 
+    width: auto;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
   }
 
   &:before {
